@@ -1,0 +1,187 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Roboto, Arial, sans-serif;
+    background-color: #f4f5f7;
+    padding: 20px;
+}
+
+.board {
+    display: flex;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.column {
+    flex: 1;
+    background-color: #ebecf0;
+    border-radius: 8px;
+    padding: 12px;
+    min-height: 400px;
+}
+
+.column-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #172b4d;
+    margin-bottom: 12px;
+    padding: 0 8px;
+}
+
+.cards-container {
+    min-height: 100px;
+    margin-bottom: 12px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 6px;
+    padding: 12px;
+    margin-bottom: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    cursor: grab;
+    position: relative;
+    word-wrap: break-word;
+}
+
+.card:hover .delete-btn {
+    opacity: 1;
+}
+
+.card.dragging {
+    cursor: grabbing;
+    opacity: 0.5;
+    transform: rotate(5deg);
+    z-index: 1000;
+}
+
+.delete-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: #6b778c;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-btn:hover {
+    color: #de350b;
+}
+
+.add-card-btn {
+    width: 100%;
+    background: none;
+    border: none;
+    color: #6b778c;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: left;
+}
+
+.add-card-btn:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.card-input-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.card-input-modal.hidden {
+    display: none;
+}
+
+.card-input-content {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    width: 400px;
+    max-width: 90%;
+}
+
+.card-text-input {
+    width: 100%;
+    min-height: 80px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    resize: vertical;
+    margin-bottom: 12px;
+}
+
+.card-text-input:focus {
+    outline: none;
+    border-color: #0079bf;
+}
+
+.card-input-buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.add-card-confirm,
+.add-card-cancel {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.add-card-confirm {
+    background-color: #0079bf;
+    color: white;
+}
+
+.add-card-confirm:hover {
+    background-color: #005a8b;
+}
+
+.add-card-cancel {
+    background-color: #f4f5f7;
+    color: #6b778c;
+}
+
+.add-card-cancel:hover {
+    background-color: #e4e6ea;
+}
+
+.drop-indicator {
+    height: 2px;
+    background-color: #0079bf;
+    margin: 4px 0;
+    border-radius: 1px;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.drop-indicator.active {
+    opacity: 1;
+}
